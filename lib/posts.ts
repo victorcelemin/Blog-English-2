@@ -172,4 +172,3 @@ export const deletePost = (id: number): boolean => {
 
   return posts.length < initialLength
 }
-

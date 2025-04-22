@@ -17,4 +17,4 @@ Un blog colaborativo para la clase de English 2 donde cualquier persona puede pu
 
 ## Instalación Local
 
-1. Clona este repositorio
+1. Clona este repositorio:

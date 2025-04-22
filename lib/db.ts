@@ -198,4 +198,3 @@ export const deletePost = (id: number): boolean => {
   localStorage.setItem(DB_KEY, JSON.stringify(filteredPosts))
   return true
 }
-

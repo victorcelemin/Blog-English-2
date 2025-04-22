@@ -262,7 +262,3 @@ app.listen(PORT, () => {
 
 // Para servicios como Vercel que utilizan serverless functions
 module.exports = app
-
-
-// Para servicios como Vercel que utilizan serverless functions
-module.exports = app;
