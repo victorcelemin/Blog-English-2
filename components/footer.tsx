@@ -70,8 +70,8 @@ export function Footer() {
             <h3 className="font-medium mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li>English 2 Class</li>
-              <li>University Campus</li>
-              <li>email@example.com</li>
+              <li>Universidad del tolima</li>
+              <li>vmcogamer@gmail.com</li>
             </ul>
           </div>
         </div>
