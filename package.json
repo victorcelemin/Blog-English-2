@@ -60,7 +60,9 @@
     "zod": "^3.24.1",
     "immer": "latest",
     "use-sync-external-store": "latest",
-    "zustand": "latest"
+    "zustand": "latest",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
   },
   "devDependencies": {
     "@types/node": "^22",
