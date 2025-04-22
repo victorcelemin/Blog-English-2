@@ -2,6 +2,7 @@
   "name": "blog-con-entradas-libres",
   "version": "1.0.0",
   "description": "Blog colaborativo para la clase de English 2",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +15,6 @@
     "@radix-ui/react-alert-dialog": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-sheet": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
