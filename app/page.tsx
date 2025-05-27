@@ -40,6 +40,55 @@ export default function Home() {
     fetchFeaturedPosts()
   }, [])
 
+  const [posts, setPosts] = useState([])
+  const [formData, setFormData] = useState({
+    title: "",
+    author_name: "",
+    student_number: "",
+    source: "",
+    category: "",
+    description: "",
+    content: "",
+  })
+
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+  }, [])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleAddPost = async () => {
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+    const newPost = await res.json()
+    setPosts([newPost, ...posts])
+    setFormData({
+      title: "",
+      author_name: "",
+      student_number: "",
+      source: "",
+      category: "",
+      description: "",
+      content: "",
+    })
+  }
+
+  const handleDeletePost = async (id: number) => {
+    await fetch("/api/posts", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    })
+    setPosts(posts.filter((post) => post.id !== id))
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with gradient background */}
