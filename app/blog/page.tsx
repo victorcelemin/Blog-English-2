@@ -43,12 +43,20 @@ export default function BlogPage() {
       setLoading(true)
       const data = await getAllPosts()
 
-      // If we got posts, we're connected to the API
-      if (data.length > 0) {
-        setApiStatus("connected")
-      }
+      // Mapea los datos para que tengan la estructura esperada
+      const mapped = data.map((post: any) => ({
+        ...post,
+        author: {
+          name: post.author_name,
+          avatar: "/placeholder.svg?height=24&width=24", // o usa post.source si tienes una URL
+        },
+        excerpt: post.description,
+        date: post.created_at ? new Date(post.created_at).toLocaleDateString() : "",
+        readTime: "2 min", // Puedes calcularlo si quieres
+      }))
 
-      setPosts(data)
+      setPosts(mapped)
+      if (data.length > 0) setApiStatus("connected")
     } catch (err) {
       console.error("Error fetching posts:", err)
       setError("Failed to load posts. Please try again later.")
