@@ -91,13 +91,13 @@ export default function BlogPage() {
   }
 
   const handleAddPost = async () => {
-    const res = await fetch("/api/posts", {
+    await fetch("/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-    const newPost = await res.json()
-    setPosts([newPost, ...posts])
+    // Recarga todos los posts desde el backend
+    await fetchPosts()
     setFormData({
       title: "",
       author_name: "",
