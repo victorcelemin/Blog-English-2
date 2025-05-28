@@ -28,6 +28,15 @@ export default function BlogPage() {
   const [error, setError] = useState<string | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
   const [apiStatus, setApiStatus] = useState<"connected" | "disconnected" | "unknown">("unknown")
+  const [formData, setFormData] = useState({
+    title: "",
+    author_name: "",
+    student_number: "",
+    source: "",
+    category: "",
+    description: "",
+    content: "",
+  })
 
   const fetchPosts = async () => {
     try {
@@ -79,6 +88,25 @@ export default function BlogPage() {
     } finally {
       setIsDeleting(false)
     }
+  }
+
+  const handleAddPost = async () => {
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+    const newPost = await res.json()
+    setPosts([newPost, ...posts])
+    setFormData({
+      title: "",
+      author_name: "",
+      student_number: "",
+      source: "",
+      category: "",
+      description: "",
+      content: "",
+    })
   }
 
   // Get unique categories from posts
